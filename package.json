@@ -89,12 +89,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pseudoyu/uright.git"
+    "url": "git+https://github.com/pseudoyu/Uright.git"
   },
   "author": "pseudoyu",
   "license": "GPL-3.0-only",
   "bugs": {
-    "url": "https://github.com/pseudoyu/uright/issues"
+    "url": "https://github.com/pseudoyu/Uright/issues"
   },
   "browser": {
     "fs": false,
