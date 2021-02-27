@@ -1,0 +1,2400 @@
+{
+  "contractName": "Evidencable",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "isOwner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "hash",
+          "type": "string"
+        }
+      ],
+      "name": "getEvidenceCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "hash",
+          "type": "string"
+        }
+      ],
+      "name": "addEvidence",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "provider",
+          "type": "address"
+        }
+      ],
+      "name": "addEvidenceProvider",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.2+commit.1df8f40c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"provider\",\"type\":\"address\"}],\"name\":\"addEvidenceProvider\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"hash\",\"type\":\"string\"}],\"name\":\"addEvidence\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"hash\",\"type\":\"string\"}],\"name\":\"getEvidenceCount\",\"outputs\":[{\"name\":\"\",\"type\":\"uint8\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOwner\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"}],\"devdoc\":{\"author\":\"Roberto Garc\\u00eda (http://rhizomik.net/~roberto/)\",\"methods\":{\"addEvidence(string)\":{\"params\":{\"hash\":\"Hash of the manifestation content, for instance IPFS Base58 Hash\"}},\"addEvidenceProvider(address)\":{\"params\":{\"provider\":\"The address of a contract providing evidence\"}},\"getEvidenceCount(string)\":{\"params\":{\"hash\":\"Hash of the manifestation content, for instance IPFS Base58 Hash\"}},\"isOwner()\":{\"return\":\"true if `msg.sender` is the owner of the contract.\"},\"owner()\":{\"return\":\"the address of the owner.\"},\"renounceOwnership()\":{\"details\":\"Allows the current owner to relinquish control of the contract. It will not be possible to call the functions with the `onlyOwner` modifier anymore.\"},\"transferOwnership(address)\":{\"details\":\"Allows the current owner to transfer control of the contract to a newOwner.\",\"params\":{\"newOwner\":\"The address to transfer ownership to.\"}}},\"title\":\"Library to implement items that can accumulate evidence\"},\"userdoc\":{\"methods\":{\"addEvidence(string)\":{\"notice\":\"Adds one to the evidence count for the manifestation with `hash`.\"},\"addEvidenceProvider(address)\":{\"notice\":\"Adds an evidence provider `provider` contract that can then call addEvidence(...) to add evidence.\"},\"getEvidenceCount(string)\":{\"notice\":\"Get the evidence count for the manifestation with `hash`.\"},\"renounceOwnership()\":{\"notice\":\"Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"}}}},\"settings\":{\"compilationTarget\":{\"/Users/hexarthur/Developer/uright/contracts/Evidencable.sol\":\"Evidencable\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hexarthur/Developer/uright/contracts/Evidencable.sol\":{\"keccak256\":\"0xaa3e7882cb4fd081c14b2c65c5d0eaef76d94170c33917a0fc528201f09c1f90\",\"urls\":[\"bzzr://6d22e3fc2b1f9af067df4b679a6e8ece0e68f07021ea32549faf39f7134b5dc7\"]},\"openzeppelin-solidity/contracts/math/SafeMath.sol\":{\"keccak256\":\"0xc2a200a877c4a9b2475c246c54ffecc69ffde3e11af83319c63c2dc5458bac80\",\"urls\":[\"bzzr://c8876e2c39b60f155d748d71d715c8f3903fae5a405ac599adcb6ad2f9a583f9\"]},\"openzeppelin-solidity/contracts/ownership/Ownable.sol\":{\"keccak256\":\"0xcb16adc00dcf0d75e0bdf94379f4d5a6d74dca7c74e4183b94e15721159f8a30\",\"urls\":[\"bzzr://b81e03f7203cd628cfed19255911a04a05e8670d248afb48a7b067dd03b4ff55\"]}},\"version\":1}",
+  "bytecode": "0x6080604081905260008054600160a060020a0319163317808255600160a060020a0316917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a361061f806100576000396000f3fe608060405234801561001057600080fd5b506004361061009a576000357c010000000000000000000000000000000000000000000000000000000090048063715018a611610078578063715018a6146102295780638da5cb5b146102315780638f32d59b14610255578063f2fde38b146102715761009a565b8063144b763a1461009f57806351a94a5f146100c7578063646986fb1461016d575b600080fd5b6100c5600480360360208110156100b557600080fd5b5035600160a060020a0316610297565b005b6100c5600480360360208110156100dd57600080fd5b8101906020810181356401000000008111156100f857600080fd5b82018360208201111561010a57600080fd5b8035906020019184600183028401116401000000008311171561012c57600080fd5b91908080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152509295506102d1945050505050565b6102136004803603602081101561018357600080fd5b81019060208101813564010000000081111561019e57600080fd5b8201836020820111156101b057600080fd5b803590602001918460018302840111640100000000831117156101d257600080fd5b91908080601f01602080910402602001604051908101604052809392919081815260200183838082843760009201919091525092955061041f945050505050565b6040805160ff9092168252519081900360200190f35b6100c561048a565b6102396104f4565b60408051600160a060020a039092168252519081900360200190f35b61025d610503565b604080519115158252519081900360200190f35b6100c56004803603602081101561028757600080fd5b5035600160a060020a0316610514565b61029f610503565b15156102aa57600080fd5b600160a060020a03166000908152600160208190526040909120805460ff19169091179055565b3360009081526001602052604090205460ff16151561033b576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602a8152602001806105ca602a913960400191505060405180910390fd5b6103aa60016002836040518082805190602001908083835b602083106103725780518252601f199092019160209182019101610353565b51815160209384036101000a600019018019909216911617905292019485525060405193849003019092205460ff1692915050610533565b6002826040518082805190602001908083835b602083106103dc5780518252601f1990920191602091820191016103bd565b51815160209384036101000a60001901801990921691161790529201948552506040519384900301909220805460ff191660ff9490941693909317909255505050565b60006002826040518082805190602001908083835b602083106104535780518252601f199092019160209182019101610434565b51815160209384036101000a600019018019909216911617905292019485525060405193849003019092205460ff16949350505050565b610492610503565b151561049d57600080fd5b60008054604051600160a060020a03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a36000805473ffffffffffffffffffffffffffffffffffffffff19169055565b600054600160a060020a031690565b600054600160a060020a0316331490565b61051c610503565b151561052757600080fd5b6105308161054c565b50565b60008282018381101561054557600080fd5b9392505050565b600160a060020a038116151561056157600080fd5b60008054604051600160a060020a03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a36000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a039290921691909117905556fe4f6e6c7920726567697374657265642065766964656e63652070726f76696465727320616c6c6f776564a165627a7a723058207ee430ebeef05e2fd69f5fd1dd37e0b232b20ac2a88880fded0e57c9ab9303900029",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061009a576000357c010000000000000000000000000000000000000000000000000000000090048063715018a611610078578063715018a6146102295780638da5cb5b146102315780638f32d59b14610255578063f2fde38b146102715761009a565b8063144b763a1461009f57806351a94a5f146100c7578063646986fb1461016d575b600080fd5b6100c5600480360360208110156100b557600080fd5b5035600160a060020a0316610297565b005b6100c5600480360360208110156100dd57600080fd5b8101906020810181356401000000008111156100f857600080fd5b82018360208201111561010a57600080fd5b8035906020019184600183028401116401000000008311171561012c57600080fd5b91908080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152509295506102d1945050505050565b6102136004803603602081101561018357600080fd5b81019060208101813564010000000081111561019e57600080fd5b8201836020820111156101b057600080fd5b803590602001918460018302840111640100000000831117156101d257600080fd5b91908080601f01602080910402602001604051908101604052809392919081815260200183838082843760009201919091525092955061041f945050505050565b6040805160ff9092168252519081900360200190f35b6100c561048a565b6102396104f4565b60408051600160a060020a039092168252519081900360200190f35b61025d610503565b604080519115158252519081900360200190f35b6100c56004803603602081101561028757600080fd5b5035600160a060020a0316610514565b61029f610503565b15156102aa57600080fd5b600160a060020a03166000908152600160208190526040909120805460ff19169091179055565b3360009081526001602052604090205460ff16151561033b576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602a8152602001806105ca602a913960400191505060405180910390fd5b6103aa60016002836040518082805190602001908083835b602083106103725780518252601f199092019160209182019101610353565b51815160209384036101000a600019018019909216911617905292019485525060405193849003019092205460ff1692915050610533565b6002826040518082805190602001908083835b602083106103dc5780518252601f1990920191602091820191016103bd565b51815160209384036101000a60001901801990921691161790529201948552506040519384900301909220805460ff191660ff9490941693909317909255505050565b60006002826040518082805190602001908083835b602083106104535780518252601f199092019160209182019101610434565b51815160209384036101000a600019018019909216911617905292019485525060405193849003019092205460ff16949350505050565b610492610503565b151561049d57600080fd5b60008054604051600160a060020a03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a36000805473ffffffffffffffffffffffffffffffffffffffff19169055565b600054600160a060020a031690565b600054600160a060020a0316331490565b61051c610503565b151561052757600080fd5b6105308161054c565b50565b60008282018381101561054557600080fd5b9392505050565b600160a060020a038116151561056157600080fd5b60008054604051600160a060020a03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a36000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a039290921691909117905556fe4f6e6c7920726567697374657265642065766964656e63652070726f76696465727320616c6c6f776564a165627a7a723058207ee430ebeef05e2fd69f5fd1dd37e0b232b20ac2a88880fded0e57c9ab9303900029",
+  "sourceMap": "287:1679:1:-;;;;;515:6:12;:19;;-1:-1:-1;;;;;;515:19:12;524:10;515:19;;;;-1:-1:-1;;;;;582:6:12;;549:40;;515:6;;549:40;287:1679:1;;;;;;",
+  "deployedSourceMap": "287:1679:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;287:1679:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1493:115;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;1493:115:1;-1:-1:-1;;;;;1493:115:1;;:::i;:::-;;1152:143;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1152:143:1;;;;;;;;21:11:-1;5:28;;2:2;;;46:1;43;36:12;2:2;1152:143:1;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;1152:143:1;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;1152:143:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;81:16;;74:27;;;;-1:-1;1152:143:1;;-1:-1:-1;1152:143:1;;-1:-1:-1;;;;;1152:143:1:i;861:118::-;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;861:118:1;;;;;;;;21:11:-1;5:28;;2:2;;;46:1;43;36:12;2:2;861:118:1;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;861:118:1;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;861:118:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;81:16;;74:27;;;;-1:-1;861:118:1;;-1:-1:-1;861:118:1;;-1:-1:-1;;;;;861:118:1:i;:::-;;;;;;;;;;;;;;;;;;;1423:137:12;;;:::i;659:77::-;;;:::i;:::-;;;;-1:-1:-1;;;;;659:77:12;;;;;;;;;;;;;;979:90;;;:::i;:::-;;;;;;;;;;;;;;;;;;1731:107;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;1731:107:12;-1:-1:-1;;;;;1731:107:12;;:::i;1493:115:1:-;863:9:12;:7;:9::i;:::-;855:18;;;;;;;;-1:-1:-1;;;;;1567:27:1;;;;;1597:4;1567:27;;;;;;;;:34;;-1:-1:-1;;1567:34:1;;;;;;1493:115::o;1152:143::-;620:10;602:29;;;;:17;:29;;;;;;;;594:84;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1260:27;1285:1;1260:14;1275:4;1260:20;;;;;;;;;;;;;36:153:-1;66:2;58:11;;36:153;;176:10;;164:23;;-1:-1;;139:12;;;;98:2;89:12;;;;114;36:153;;;299:10;344;;263:2;259:12;;;254:3;250:22;-1:-1;;246:30;311:9;;295:26;;;340:21;;377:20;365:33;;1260:20:1;;;;;-1:-1:-1;1260:20:1;;;;;;;;;;;;;;;-1:-1:-1;;1260:24:1;:27::i;:::-;1231:14;1246:4;1231:20;;;;;;;;;;;;;36:153:-1;66:2;58:11;;36:153;;176:10;;164:23;;-1:-1;;139:12;;;;98:2;89:12;;;;114;36:153;;;299:10;344;;263:2;259:12;;;254:3;250:22;-1:-1;;246:30;311:9;;295:26;;;340:21;;377:20;365:33;;1231:20:1;;;;;-1:-1:-1;1231:20:1;;;;;;;;;;:57;;-1:-1:-1;;1231:57:1;;;;;;;;;;;;;-1:-1:-1;;;1152:143:1:o;861:118::-;928:5;952:14;967:4;952:20;;;;;;;;;;;;;36:153:-1;66:2;58:11;;36:153;;176:10;;164:23;;-1:-1;;139:12;;;;98:2;89:12;;;;114;36:153;;;299:10;344;;263:2;259:12;;;254:3;250:22;-1:-1;;246:30;311:9;;295:26;;;340:21;;377:20;365:33;;952:20:1;;;;;-1:-1:-1;952:20:1;;;;;;;;;;;;;;861:118;-1:-1:-1;;;;861:118:1:o;1423:137:12:-;863:9;:7;:9::i;:::-;855:18;;;;;;;;1521:1;1505:6;;1484:40;;-1:-1:-1;;;;;1505:6:12;;;;1484:40;;1521:1;;1484:40;1551:1;1534:19;;-1:-1:-1;;1534:19:12;;;1423:137::o;659:77::-;697:7;723:6;-1:-1:-1;;;;;723:6:12;659:77;:::o;979:90::-;1019:4;1056:6;-1:-1:-1;;;;;1056:6:12;1042:10;:20;;979:90::o;1731:107::-;863:9;:7;:9::i;:::-;855:18;;;;;;;;1803:28;1822:8;1803:18;:28::i;:::-;1731:107;:::o;1439:145:11:-;1497:7;1528:5;;;1551:6;;;;1543:15;;;;;;1576:1;1439:145;-1:-1:-1;;;1439:145:11:o;1982:183:12:-;-1:-1:-1;;;;;2055:22:12;;;;2047:31;;;;;;2114:6;;;2093:38;;-1:-1:-1;;;;;2093:38:12;;;;2114:6;;;2093:38;;;2141:6;:17;;-1:-1:-1;;2141:17:12;-1:-1:-1;;;;;2141:17:12;;;;;;;;;;1982:183::o",
+  "source": "pragma solidity >=0.4.21 <0.6.0;\n\nimport \"openzeppelin-solidity/contracts/math/SafeMath.sol\";\nimport \"openzeppelin-solidity/contracts/ownership/Ownable.sol\";\n\n\n/// @title Library to implement items that can accumulate evidence\n/// @author Roberto García (http://rhizomik.net/~roberto/)\ncontract Evidencable is Ownable {\n    using SafeMath for uint8;\n\n    mapping(address => bool) private evidenceProviders;\n    mapping(string => uint8) private evidenceCounts;\n\n    /// @dev Modifier controlling that only registered evidence providers are allowed\n    modifier onlyEvidenceProvider() {\n        require(evidenceProviders[msg.sender], \"Only registered evidence providers allowed\");\n        _;\n    }\n\n    /// @notice Get the evidence count for the manifestation with `hash`.\n    /// @param hash Hash of the manifestation content, for instance IPFS Base58 Hash\n    function getEvidenceCount(string memory hash) public view returns (uint8) {\n        return evidenceCounts[hash];\n    }\n\n    /// @notice Adds one to the evidence count for the manifestation with `hash`.\n    /// @param hash Hash of the manifestation content, for instance IPFS Base58 Hash\n    function addEvidence(string memory hash) public onlyEvidenceProvider {\n        evidenceCounts[hash] = uint8(evidenceCounts[hash].add(1));\n    }\n\n    /// @notice Adds an evidence provider `provider` contract that can then call addEvidence(...)\n    /// to add evidence.\n    /// @param provider The address of a contract providing evidence\n    function addEvidenceProvider(address provider) public onlyOwner {\n        evidenceProviders[provider] = true;\n    }\n\n    /// @notice Check if the evidencable `hash` has no evidence yet.\n    /// @dev Used to check if the corresponding item evidence count is 0.\n    /// @param hash Hash of the manifestation content, for instance IPFS Base58 Hash\n    function isUnevidenced(string memory hash) internal view returns(bool) {\n        return (evidenceCounts[hash] == 0);\n    }\n}\n",
+  "sourcePath": "/Users/hexarthur/Developer/uright/contracts/Evidencable.sol",
+  "ast": {
+    "absolutePath": "/Users/hexarthur/Developer/uright/contracts/Evidencable.sol",
+    "exportedSymbols": {
+      "Evidencable": [
+        263
+      ]
+    },
+    "id": 264,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 173,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".21",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:1"
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "file": "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "id": 174,
+        "nodeType": "ImportDirective",
+        "scope": 264,
+        "sourceUnit": 7708,
+        "src": "34:59:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "id": 175,
+        "nodeType": "ImportDirective",
+        "scope": 264,
+        "sourceUnit": 7817,
+        "src": "94:63:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 176,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7816,
+              "src": "311:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$7816",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 177,
+            "nodeType": "InheritanceSpecifier",
+            "src": "311:7:1"
+          }
+        ],
+        "contractDependencies": [
+          7816
+        ],
+        "contractKind": "contract",
+        "documentation": "@title Library to implement items that can accumulate evidence\n @author Roberto García (http://rhizomik.net/~roberto/)",
+        "fullyImplemented": true,
+        "id": 263,
+        "linearizedBaseContracts": [
+          263,
+          7816
+        ],
+        "name": "Evidencable",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 180,
+            "libraryName": {
+              "contractScope": null,
+              "id": 178,
+              "name": "SafeMath",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7707,
+              "src": "331:8:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SafeMath_$7707",
+                "typeString": "library SafeMath"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "325:25:1",
+            "typeName": {
+              "id": 179,
+              "name": "uint8",
+              "nodeType": "ElementaryTypeName",
+              "src": "344:5:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint8",
+                "typeString": "uint8"
+              }
+            }
+          },
+          {
+            "constant": false,
+            "id": 184,
+            "name": "evidenceProviders",
+            "nodeType": "VariableDeclaration",
+            "scope": 263,
+            "src": "356:50:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+              "typeString": "mapping(address => bool)"
+            },
+            "typeName": {
+              "id": 183,
+              "keyType": {
+                "id": 181,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "364:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "356:24:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                "typeString": "mapping(address => bool)"
+              },
+              "valueType": {
+                "id": 182,
+                "name": "bool",
+                "nodeType": "ElementaryTypeName",
+                "src": "375:4:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 188,
+            "name": "evidenceCounts",
+            "nodeType": "VariableDeclaration",
+            "scope": 263,
+            "src": "412:47:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_string_memory_$_t_uint8_$",
+              "typeString": "mapping(string => uint8)"
+            },
+            "typeName": {
+              "id": 187,
+              "keyType": {
+                "id": 185,
+                "name": "string",
+                "nodeType": "ElementaryTypeName",
+                "src": "420:6:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "412:24:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_string_memory_$_t_uint8_$",
+                "typeString": "mapping(string => uint8)"
+              },
+              "valueType": {
+                "id": 186,
+                "name": "uint8",
+                "nodeType": "ElementaryTypeName",
+                "src": "430:5:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 199,
+              "nodeType": "Block",
+              "src": "584:112:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 191,
+                          "name": "evidenceProviders",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 184,
+                          "src": "602:17:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                            "typeString": "mapping(address => bool)"
+                          }
+                        },
+                        "id": 194,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 192,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 8242,
+                            "src": "620:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 193,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "620:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "602:29:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "4f6e6c7920726567697374657265642065766964656e63652070726f76696465727320616c6c6f776564",
+                        "id": 195,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "633:44:1",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_9cb84a229f1c57949a0c01c4f8425b21169b59cdb193b05273899e101296f757",
+                          "typeString": "literal_string \"Only registered evidence providers allowed\""
+                        },
+                        "value": "Only registered evidence providers allowed"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_9cb84a229f1c57949a0c01c4f8425b21169b59cdb193b05273899e101296f757",
+                          "typeString": "literal_string \"Only registered evidence providers allowed\""
+                        }
+                      ],
+                      "id": 190,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        8245,
+                        8246
+                      ],
+                      "referencedDeclaration": 8246,
+                      "src": "594:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 196,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "594:84:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 197,
+                  "nodeType": "ExpressionStatement",
+                  "src": "594:84:1"
+                },
+                {
+                  "id": 198,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "688:1:1"
+                }
+              ]
+            },
+            "documentation": "@dev Modifier controlling that only registered evidence providers are allowed",
+            "id": 200,
+            "name": "onlyEvidenceProvider",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 189,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "581:2:1"
+            },
+            "src": "552:144:1",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 211,
+              "nodeType": "Block",
+              "src": "935:44:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 207,
+                      "name": "evidenceCounts",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 188,
+                      "src": "952:14:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_string_memory_$_t_uint8_$",
+                        "typeString": "mapping(string memory => uint8)"
+                      }
+                    },
+                    "id": 209,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 208,
+                      "name": "hash",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 202,
+                      "src": "967:4:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "952:20:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "functionReturnParameters": 206,
+                  "id": 210,
+                  "nodeType": "Return",
+                  "src": "945:27:1"
+                }
+              ]
+            },
+            "documentation": "@notice Get the evidence count for the manifestation with `hash`.\n @param hash Hash of the manifestation content, for instance IPFS Base58 Hash",
+            "id": 212,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getEvidenceCount",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 203,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 202,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 212,
+                  "src": "887:18:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 201,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "887:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "886:20:1"
+            },
+            "returnParameters": {
+              "id": 206,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 205,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 212,
+                  "src": "928:5:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 204,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "928:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "927:7:1"
+            },
+            "scope": 263,
+            "src": "861:118:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 232,
+              "nodeType": "Block",
+              "src": "1221:74:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 230,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 219,
+                        "name": "evidenceCounts",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 188,
+                        "src": "1231:14:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_string_memory_$_t_uint8_$",
+                          "typeString": "mapping(string memory => uint8)"
+                        }
+                      },
+                      "id": 221,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 220,
+                        "name": "hash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 214,
+                        "src": "1246:4:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "1231:20:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint8",
+                        "typeString": "uint8"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "hexValue": "31",
+                              "id": 227,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "number",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "1285:1:1",
+                              "subdenomination": null,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_rational_1_by_1",
+                                "typeString": "int_const 1"
+                              },
+                              "value": "1"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_rational_1_by_1",
+                                "typeString": "int_const 1"
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 223,
+                                "name": "evidenceCounts",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 188,
+                                "src": "1260:14:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_mapping$_t_string_memory_$_t_uint8_$",
+                                  "typeString": "mapping(string memory => uint8)"
+                                }
+                              },
+                              "id": 225,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "id": 224,
+                                "name": "hash",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 214,
+                                "src": "1275:4:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "1260:20:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint8",
+                                "typeString": "uint8"
+                              }
+                            },
+                            "id": 226,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "add",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 7686,
+                            "src": "1260:24:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
+                              "typeString": "function (uint256,uint256) pure returns (uint256)"
+                            }
+                          },
+                          "id": 228,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1260:27:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        ],
+                        "id": 222,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "ElementaryTypeNameExpression",
+                        "src": "1254:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_uint8_$",
+                          "typeString": "type(uint8)"
+                        },
+                        "typeName": "uint8"
+                      },
+                      "id": 229,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1254:34:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint8",
+                        "typeString": "uint8"
+                      }
+                    },
+                    "src": "1231:57:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "id": 231,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1231:57:1"
+                }
+              ]
+            },
+            "documentation": "@notice Adds one to the evidence count for the manifestation with `hash`.\n @param hash Hash of the manifestation content, for instance IPFS Base58 Hash",
+            "id": 233,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 217,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 216,
+                  "name": "onlyEvidenceProvider",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 200,
+                  "src": "1200:20:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1200:20:1"
+              }
+            ],
+            "name": "addEvidence",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 215,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 214,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 233,
+                  "src": "1173:18:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 213,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1173:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1172:20:1"
+            },
+            "returnParameters": {
+              "id": 218,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1221:0:1"
+            },
+            "scope": 263,
+            "src": "1152:143:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 246,
+              "nodeType": "Block",
+              "src": "1557:51:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 244,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 240,
+                        "name": "evidenceProviders",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 184,
+                        "src": "1567:17:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                          "typeString": "mapping(address => bool)"
+                        }
+                      },
+                      "id": 242,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 241,
+                        "name": "provider",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 235,
+                        "src": "1585:8:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "1567:27:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 243,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1597:4:1",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "1567:34:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 245,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1567:34:1"
+                }
+              ]
+            },
+            "documentation": "@notice Adds an evidence provider `provider` contract that can then call addEvidence(...)\n to add evidence.\n @param provider The address of a contract providing evidence",
+            "id": 247,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 238,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 237,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 7750,
+                  "src": "1547:9:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1547:9:1"
+              }
+            ],
+            "name": "addEvidenceProvider",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 236,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 235,
+                  "name": "provider",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 247,
+                  "src": "1522:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 234,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1522:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1521:18:1"
+            },
+            "returnParameters": {
+              "id": 239,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1557:0:1"
+            },
+            "scope": 263,
+            "src": "1493:115:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 261,
+              "nodeType": "Block",
+              "src": "1913:51:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint8",
+                          "typeString": "uint8"
+                        },
+                        "id": 258,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 254,
+                            "name": "evidenceCounts",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 188,
+                            "src": "1931:14:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_string_memory_$_t_uint8_$",
+                              "typeString": "mapping(string memory => uint8)"
+                            }
+                          },
+                          "id": 256,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 255,
+                            "name": "hash",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 249,
+                            "src": "1946:4:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1931:20:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint8",
+                            "typeString": "uint8"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 257,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "1955:1:1",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        },
+                        "src": "1931:25:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "id": 259,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "1930:27:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 253,
+                  "id": 260,
+                  "nodeType": "Return",
+                  "src": "1923:34:1"
+                }
+              ]
+            },
+            "documentation": "@notice Check if the evidencable `hash` has no evidence yet.\n @dev Used to check if the corresponding item evidence count is 0.\n @param hash Hash of the manifestation content, for instance IPFS Base58 Hash",
+            "id": 262,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isUnevidenced",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 250,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 249,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 262,
+                  "src": "1865:18:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 248,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1865:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1864:20:1"
+            },
+            "returnParameters": {
+              "id": 253,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 252,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 262,
+                  "src": "1907:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 251,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1907:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1906:6:1"
+            },
+            "scope": 263,
+            "src": "1842:122:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 264,
+        "src": "287:1679:1"
+      }
+    ],
+    "src": "0:1967:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/hexarthur/Developer/uright/contracts/Evidencable.sol",
+    "exportedSymbols": {
+      "Evidencable": [
+        263
+      ]
+    },
+    "id": 264,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 173,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".21",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:1"
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "file": "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "id": 174,
+        "nodeType": "ImportDirective",
+        "scope": 264,
+        "sourceUnit": 7708,
+        "src": "34:59:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "id": 175,
+        "nodeType": "ImportDirective",
+        "scope": 264,
+        "sourceUnit": 7817,
+        "src": "94:63:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 176,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7816,
+              "src": "311:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$7816",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 177,
+            "nodeType": "InheritanceSpecifier",
+            "src": "311:7:1"
+          }
+        ],
+        "contractDependencies": [
+          7816
+        ],
+        "contractKind": "contract",
+        "documentation": "@title Library to implement items that can accumulate evidence\n @author Roberto García (http://rhizomik.net/~roberto/)",
+        "fullyImplemented": true,
+        "id": 263,
+        "linearizedBaseContracts": [
+          263,
+          7816
+        ],
+        "name": "Evidencable",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 180,
+            "libraryName": {
+              "contractScope": null,
+              "id": 178,
+              "name": "SafeMath",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7707,
+              "src": "331:8:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SafeMath_$7707",
+                "typeString": "library SafeMath"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "325:25:1",
+            "typeName": {
+              "id": 179,
+              "name": "uint8",
+              "nodeType": "ElementaryTypeName",
+              "src": "344:5:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint8",
+                "typeString": "uint8"
+              }
+            }
+          },
+          {
+            "constant": false,
+            "id": 184,
+            "name": "evidenceProviders",
+            "nodeType": "VariableDeclaration",
+            "scope": 263,
+            "src": "356:50:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+              "typeString": "mapping(address => bool)"
+            },
+            "typeName": {
+              "id": 183,
+              "keyType": {
+                "id": 181,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "364:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "356:24:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                "typeString": "mapping(address => bool)"
+              },
+              "valueType": {
+                "id": 182,
+                "name": "bool",
+                "nodeType": "ElementaryTypeName",
+                "src": "375:4:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 188,
+            "name": "evidenceCounts",
+            "nodeType": "VariableDeclaration",
+            "scope": 263,
+            "src": "412:47:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_string_memory_$_t_uint8_$",
+              "typeString": "mapping(string => uint8)"
+            },
+            "typeName": {
+              "id": 187,
+              "keyType": {
+                "id": 185,
+                "name": "string",
+                "nodeType": "ElementaryTypeName",
+                "src": "420:6:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "412:24:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_string_memory_$_t_uint8_$",
+                "typeString": "mapping(string => uint8)"
+              },
+              "valueType": {
+                "id": 186,
+                "name": "uint8",
+                "nodeType": "ElementaryTypeName",
+                "src": "430:5:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 199,
+              "nodeType": "Block",
+              "src": "584:112:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 191,
+                          "name": "evidenceProviders",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 184,
+                          "src": "602:17:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                            "typeString": "mapping(address => bool)"
+                          }
+                        },
+                        "id": 194,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 192,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 8242,
+                            "src": "620:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 193,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "620:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "602:29:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "4f6e6c7920726567697374657265642065766964656e63652070726f76696465727320616c6c6f776564",
+                        "id": 195,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "633:44:1",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_9cb84a229f1c57949a0c01c4f8425b21169b59cdb193b05273899e101296f757",
+                          "typeString": "literal_string \"Only registered evidence providers allowed\""
+                        },
+                        "value": "Only registered evidence providers allowed"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_9cb84a229f1c57949a0c01c4f8425b21169b59cdb193b05273899e101296f757",
+                          "typeString": "literal_string \"Only registered evidence providers allowed\""
+                        }
+                      ],
+                      "id": 190,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        8245,
+                        8246
+                      ],
+                      "referencedDeclaration": 8246,
+                      "src": "594:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 196,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "594:84:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 197,
+                  "nodeType": "ExpressionStatement",
+                  "src": "594:84:1"
+                },
+                {
+                  "id": 198,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "688:1:1"
+                }
+              ]
+            },
+            "documentation": "@dev Modifier controlling that only registered evidence providers are allowed",
+            "id": 200,
+            "name": "onlyEvidenceProvider",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 189,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "581:2:1"
+            },
+            "src": "552:144:1",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 211,
+              "nodeType": "Block",
+              "src": "935:44:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 207,
+                      "name": "evidenceCounts",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 188,
+                      "src": "952:14:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_string_memory_$_t_uint8_$",
+                        "typeString": "mapping(string memory => uint8)"
+                      }
+                    },
+                    "id": 209,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 208,
+                      "name": "hash",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 202,
+                      "src": "967:4:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "952:20:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "functionReturnParameters": 206,
+                  "id": 210,
+                  "nodeType": "Return",
+                  "src": "945:27:1"
+                }
+              ]
+            },
+            "documentation": "@notice Get the evidence count for the manifestation with `hash`.\n @param hash Hash of the manifestation content, for instance IPFS Base58 Hash",
+            "id": 212,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getEvidenceCount",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 203,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 202,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 212,
+                  "src": "887:18:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 201,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "887:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "886:20:1"
+            },
+            "returnParameters": {
+              "id": 206,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 205,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 212,
+                  "src": "928:5:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 204,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "928:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "927:7:1"
+            },
+            "scope": 263,
+            "src": "861:118:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 232,
+              "nodeType": "Block",
+              "src": "1221:74:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 230,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 219,
+                        "name": "evidenceCounts",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 188,
+                        "src": "1231:14:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_string_memory_$_t_uint8_$",
+                          "typeString": "mapping(string memory => uint8)"
+                        }
+                      },
+                      "id": 221,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 220,
+                        "name": "hash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 214,
+                        "src": "1246:4:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "1231:20:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint8",
+                        "typeString": "uint8"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "hexValue": "31",
+                              "id": 227,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "number",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "1285:1:1",
+                              "subdenomination": null,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_rational_1_by_1",
+                                "typeString": "int_const 1"
+                              },
+                              "value": "1"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_rational_1_by_1",
+                                "typeString": "int_const 1"
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 223,
+                                "name": "evidenceCounts",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 188,
+                                "src": "1260:14:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_mapping$_t_string_memory_$_t_uint8_$",
+                                  "typeString": "mapping(string memory => uint8)"
+                                }
+                              },
+                              "id": 225,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "id": 224,
+                                "name": "hash",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 214,
+                                "src": "1275:4:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "1260:20:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint8",
+                                "typeString": "uint8"
+                              }
+                            },
+                            "id": 226,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "add",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 7686,
+                            "src": "1260:24:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
+                              "typeString": "function (uint256,uint256) pure returns (uint256)"
+                            }
+                          },
+                          "id": 228,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1260:27:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        ],
+                        "id": 222,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "ElementaryTypeNameExpression",
+                        "src": "1254:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_uint8_$",
+                          "typeString": "type(uint8)"
+                        },
+                        "typeName": "uint8"
+                      },
+                      "id": 229,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1254:34:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint8",
+                        "typeString": "uint8"
+                      }
+                    },
+                    "src": "1231:57:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "id": 231,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1231:57:1"
+                }
+              ]
+            },
+            "documentation": "@notice Adds one to the evidence count for the manifestation with `hash`.\n @param hash Hash of the manifestation content, for instance IPFS Base58 Hash",
+            "id": 233,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 217,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 216,
+                  "name": "onlyEvidenceProvider",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 200,
+                  "src": "1200:20:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1200:20:1"
+              }
+            ],
+            "name": "addEvidence",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 215,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 214,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 233,
+                  "src": "1173:18:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 213,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1173:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1172:20:1"
+            },
+            "returnParameters": {
+              "id": 218,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1221:0:1"
+            },
+            "scope": 263,
+            "src": "1152:143:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 246,
+              "nodeType": "Block",
+              "src": "1557:51:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 244,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 240,
+                        "name": "evidenceProviders",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 184,
+                        "src": "1567:17:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                          "typeString": "mapping(address => bool)"
+                        }
+                      },
+                      "id": 242,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 241,
+                        "name": "provider",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 235,
+                        "src": "1585:8:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "1567:27:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 243,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1597:4:1",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "1567:34:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 245,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1567:34:1"
+                }
+              ]
+            },
+            "documentation": "@notice Adds an evidence provider `provider` contract that can then call addEvidence(...)\n to add evidence.\n @param provider The address of a contract providing evidence",
+            "id": 247,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 238,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 237,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 7750,
+                  "src": "1547:9:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1547:9:1"
+              }
+            ],
+            "name": "addEvidenceProvider",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 236,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 235,
+                  "name": "provider",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 247,
+                  "src": "1522:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 234,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1522:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1521:18:1"
+            },
+            "returnParameters": {
+              "id": 239,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1557:0:1"
+            },
+            "scope": 263,
+            "src": "1493:115:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 261,
+              "nodeType": "Block",
+              "src": "1913:51:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint8",
+                          "typeString": "uint8"
+                        },
+                        "id": 258,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 254,
+                            "name": "evidenceCounts",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 188,
+                            "src": "1931:14:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_string_memory_$_t_uint8_$",
+                              "typeString": "mapping(string memory => uint8)"
+                            }
+                          },
+                          "id": 256,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 255,
+                            "name": "hash",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 249,
+                            "src": "1946:4:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1931:20:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint8",
+                            "typeString": "uint8"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 257,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "1955:1:1",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        },
+                        "src": "1931:25:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "id": 259,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "1930:27:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 253,
+                  "id": 260,
+                  "nodeType": "Return",
+                  "src": "1923:34:1"
+                }
+              ]
+            },
+            "documentation": "@notice Check if the evidencable `hash` has no evidence yet.\n @dev Used to check if the corresponding item evidence count is 0.\n @param hash Hash of the manifestation content, for instance IPFS Base58 Hash",
+            "id": 262,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isUnevidenced",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 250,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 249,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 262,
+                  "src": "1865:18:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 248,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1865:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1864:20:1"
+            },
+            "returnParameters": {
+              "id": 253,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 252,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 262,
+                  "src": "1907:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 251,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1907:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1906:6:1"
+            },
+            "scope": 263,
+            "src": "1842:122:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 264,
+        "src": "287:1679:1"
+      }
+    ],
+    "src": "0:1967:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.2+commit.1df8f40c.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.9",
+  "updatedAt": "2021-02-27T03:16:09.865Z",
+  "devdoc": {
+    "author": "Roberto García (http://rhizomik.net/~roberto/)",
+    "methods": {
+      "addEvidence(string)": {
+        "params": {
+          "hash": "Hash of the manifestation content, for instance IPFS Base58 Hash"
+        }
+      },
+      "addEvidenceProvider(address)": {
+        "params": {
+          "provider": "The address of a contract providing evidence"
+        }
+      },
+      "getEvidenceCount(string)": {
+        "params": {
+          "hash": "Hash of the manifestation content, for instance IPFS Base58 Hash"
+        }
+      },
+      "isOwner()": {
+        "return": "true if `msg.sender` is the owner of the contract."
+      },
+      "owner()": {
+        "return": "the address of the owner."
+      },
+      "renounceOwnership()": {
+        "details": "Allows the current owner to relinquish control of the contract. It will not be possible to call the functions with the `onlyOwner` modifier anymore."
+      },
+      "transferOwnership(address)": {
+        "details": "Allows the current owner to transfer control of the contract to a newOwner.",
+        "params": {
+          "newOwner": "The address to transfer ownership to."
+        }
+      }
+    },
+    "title": "Library to implement items that can accumulate evidence"
+  },
+  "userdoc": {
+    "methods": {
+      "addEvidence(string)": {
+        "notice": "Adds one to the evidence count for the manifestation with `hash`."
+      },
+      "addEvidenceProvider(address)": {
+        "notice": "Adds an evidence provider `provider` contract that can then call addEvidence(...) to add evidence."
+      },
+      "getEvidenceCount(string)": {
+        "notice": "Get the evidence count for the manifestation with `hash`."
+      },
+      "renounceOwnership()": {
+        "notice": "Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "Roberto García <roberto@rhizomik.net>"
+  ],
+  "dependencies": {
+    "oraclize-api": "1.0.0"
+  },
+  "description": "ÐApp for Copyright Management",
+  "keywords": [
+    "copyright",
+    "media"
+  ],
+  "license": "GPL-3.0-only",
+  "links": {},
+  "package_name": "copyrightly",
+  "version": "0.0.1"
+}

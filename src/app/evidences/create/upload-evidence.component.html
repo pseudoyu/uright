@@ -1,0 +1,64 @@
+<h5><span class="fa fa-gavel"></span> Add Uploadable Authorship Evidence</h5>
+<p class="lead">Upload content supporting the authorship claim on the manifestation</p>
+
+<form id="evidence-form" (ngSubmit)="addEvidence(evidenceForm)" #evidenceForm="ngForm">
+  <fieldset>
+
+    <!-- Evidencer input -->
+    <div class="form-group" [class.was-validated]="inputEvidencer.dirty || inputEvidencer.touched">
+      <label class="control-label" for="inputEvidencer">Evidencer*</label>
+      <input id="inputEvidencer" name="inputEvidencer" type="text" class="form-control" disabled
+             [ngModel]="account" #inputEvidencer="ngModel">
+    </div>
+
+    <!-- Manifestation hash input -->
+    <div class="form-group" [class.was-validated]="inputEvidenced.dirty || inputEvidenced.touched">
+      <label class="control-label" for="inputEvidenced">Manifestation*</label>
+      <input id="inputEvidenced" name="inputEvidenced" type="text" class="form-control" disabled
+             [ngModel]="uploadEvidence.evidencedHash" #inputEvidenced="ngModel">
+    </div>
+
+    <!-- CLY stake input -->
+    <div class="form-group" [class.was-validated]="inputStake.dirty || inputStake.touched">
+      <label class="control-label" for="inputStake">Stake* (not implemented yet)</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="cly-units">
+            <span class="fas fa-copyright logo-icon"></span>LY Tokens</span>
+        </div>
+        <input id="inputStake" name="inputStake" type="number" step="0.01" class="form-control"
+               aria-describedby="cly-units" [ngModel]="stake" #inputStake="ngModel">
+      </div>
+    </div>
+
+    <!-- Content file input -->
+    <div class="form-group" [class.was-validated]="inputHash.dirty || inputHash.touched">
+      <div class="form-check">
+        <input id="upload" name="upload" type="checkbox" class="form-check-input" [(ngModel)]="uploadToIpfs">
+        <label class="control-label" for="upload"><b>Upload</b> evidence to IPFS so anyone can
+          access it and check authorship.<br> <b>Un-check</b> if you prefer to keep it <b>private</b>
+          and reveal it later. Just keep the original file used to generate the content hash.
+        </label>
+      </div>
+      <label class="control-label" for="inputHash">Evidence Content*</label>
+      <input id="inputHash" name="inputHash" type="text" class="form-control"
+             readonly required appUploadExistence [(ngModel)]="uploadEvidence.evidenceHash"
+             #inputHash="ngModel" placeholder="Loaded content hash">
+      <input id="inputFile" name="inputFile" type="file" class="form-control"
+             (change)="loadFile(inputFile)" #inputFile>
+      <div class="invalid-feedback">A content hash is required, load a file to generate it</div>
+      <div class="invalid-feedback" [hidden]="!inputHash.errors?.uploadExistence" style="display:block">
+        Content already uploaded as evidence
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+      <button id="register" type="submit" class="btn btn-success pull-right"
+              [disabled]="!evidenceForm.form.valid || !inputHash.value">{{status}}</button>
+      <button id="cancel" type="button" class="btn btn-danger pull-right ml-2"
+              (click)="cancelUpload()">Cancel</button>
+    </div>
+
+  </fieldset>
+</form>

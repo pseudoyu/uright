@@ -1,0 +1,30 @@
+<div class="jumbotron">
+  <h2><span class="fas fa-copyright"></span>opyright<b>LY</b></h2>
+  <p>A Decentralized Application (ÐApp) for Copyright Management based on the Ethereum blockchain.</p>
+  <h3>Features</h3>
+  <ul>
+    <li><b>Manifestations</b>: expressions of authors ideas into pieces of content
+      that can be then used to prove authorship.
+      <ul>
+        <li><a [routerLink]="['/register']">Register</a>:
+          claim single authorship on a piece of content hash.</li>
+        <li><a [routerLink]="['/search']">Search</a>:
+          check if a piece of content is already registered searching by hash.</li>
+        <li><a [routerLink]="['/list']">List Own</a>:
+          look for all the authorship manifestations made by the current user.</li>
+        <li><a [routerLink]="['/list-all']">List All</a>:
+          look for all the authorship manifestations registered by any user.</li>
+        <li><b>Details</b>:
+          From a manifestation search results, or from the list of own manifestations,
+          click "Details" to see all the information about them, including their Evidences.</li>
+        <li><b>Evidences</b>:
+          From the manifestation details it is possible to add new evidence supporting
+          authorship.</li>
+      </ul>
+    <li>More coming...</li>
+  </ul>
+</div>
+<div>
+  <p><span class="fab fa-github"></span><a href="https://github.com/rogargon/copyrightly.io">
+    https://github.com/rogargon/copyrightly.io</a></p>
+</div>

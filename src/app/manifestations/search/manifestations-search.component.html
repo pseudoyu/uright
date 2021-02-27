@@ -1,0 +1,56 @@
+<h4><span class="fa fa-search"></span> Search</h4>
+<p class="lead">Look for previously registered creations by content hash</p>
+
+<form id="search-form" *ngIf="!manifestation.title"
+      (ngSubmit)="getManifestation(inputHash.value)" #getManifestationForm="ngForm">
+  <fieldset>
+
+    <!-- Content hash input -->
+    <div class="form-group" [class.was-validated]="inputHash.dirty || inputHash.touched">
+      <label class="control-label" for="inputHash">Hash*</label>
+      <input id="inputHash" name="inputHash" type="text" class="form-control" required
+             (ngModel)="manifestation.hash" #inputHash="ngModel" placeholder="Content Hash">
+      <div class="invalid-feedback">A content hash is required</div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+      <button id="submit" type="submit" class="btn btn-success pull-right"
+              [disabled]="!getManifestationForm.form.valid">Search</button>
+    </div>
+
+  </fieldset>
+</form>
+
+<div *ngIf="manifestation.title">
+
+  <p class="col-md-12 p-0">Search result:</p>
+
+  <div class="card mb-1">
+    <div class="card-block row m-1">
+      <h5 class="card-title col-md-12 p-1">{{manifestation?.title}}</h5>
+      <div class="col-md-6 p-1 mb-1">
+        <h6 class="card-subtitle text-muted">Hash</h6>
+        <a class="card-text" href="https://ipfs.infura.io/ipfs/{{manifestation?.hash}}" target="_blank">
+          {{manifestation?.hash}}</a>
+      </div>
+      <div class="col-md-2 p-1 mb-1">
+        <h6 class="card-subtitle text-muted">Authors</h6>
+        <p class="card-text" *ngFor="let author of manifestation?.authors" title="{{author}}">
+          {{author | slice:0:6}}...{{author | slice:-4}}
+        </p>
+      </div>
+      <div class="col-md-4 p-1 mb-1">
+        <h6 class="card-subtitle text-muted">When</h6>
+        <p class="card-text">{{manifestation?.when | date:'medium'}}</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button id="details" type="button" class="btn btn-primary"
+              [routerLink]="['/manifestations', manifestation?.hash]">Details</button>
+      <button id="back" type="button" class="btn btn-secondary ml-2"
+              (click)="manifestation.title = ''">Back</button>
+    </div>
+  </div>
+
+</div>

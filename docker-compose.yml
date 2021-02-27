@@ -1,0 +1,12 @@
+version: '2'
+services:
+  copyrightly-io:
+    image: rogargon/copyrightly-io
+    container_name: copyrightly-io
+    expose:
+    - "80"
+    environment:
+    - VIRTUAL_HOST=copyrightly.io
+    - LETSENCRYPT_HOST=copyrightly.io
+    - LETSENCRYPT_EMAIL=rogargon@gmail.com
+    network_mode: "bridge"

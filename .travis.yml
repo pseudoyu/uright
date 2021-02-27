@@ -1,0 +1,52 @@
+language: node_js
+node_js: '11'
+sudo: required
+services:
+  - docker
+addons:
+  chrome: stable
+  apt:
+    packages:
+      - chromium-chromedriver
+
+branches:
+  only:
+  - master
+
+cache:
+  directories:
+  - node_modules
+
+install:
+  - npm install
+
+before_script:
+  - curl -L https://github.com/rancher/rancher-compose/releases/download/v0.12.5/rancher-compose-linux-amd64-v0.12.5.tar.gz > rancher-compose.tar.gz
+  - tar -xvzf rancher-compose.tar.gz
+  - rm *.gz
+  - chmod +x rancher-compose-v0.12.5/rancher-compose
+  - sudo mv rancher-compose-v0.12.5/rancher-compose /usr/local/bin
+  - rm -r rancher-compose-v0.12.5
+  - export CHROME_BIN=chromium-browser
+
+script:
+  - npm run lint || travis_terminate 1
+  - npm run network > /dev/null &
+  - while ! nc -z localhost 8545; do sleep 5; done
+  - npm run ethereum-bridge > /dev/null &
+  - sleep 30
+  - npm run soltest || travis_terminate 1
+  - npm run migrate
+  - npm run e2e || travis_terminate 1
+  - npm run migrate -- --network ropsten
+  - npm run build
+
+after_success:
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
+      docker login -u $DOCKER_USER -p $DOCKER_PASS;
+      export REPO=rogargon/copyrightly-io;
+      export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`;
+      docker build -f Dockerfile -t $REPO:$TRAVIS_COMMIT .;
+      docker tag $REPO:$TRAVIS_COMMIT $REPO:$TAG;
+      docker push $REPO;
+    fi

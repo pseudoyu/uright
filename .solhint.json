@@ -1,0 +1,10 @@
+{
+  "extends": "solhint:default",
+  "rules": {
+    "indent": ["warning", 4],
+    "quotes": ["error", "double"],
+    "max-line-length": ["warning", 120],
+    "two-lines-top-level-separator": false,
+    "compiler-fixed": false
+  }
+}

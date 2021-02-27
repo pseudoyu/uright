@@ -1,0 +1,40 @@
+
+<div class="card mb-4">
+  <div class="card-block row m-1">
+    <h5 class="card-title col-md-12 p-1">YouTube Evidence {{evidenceIndex}}</h5>
+    <div class="col-md-6 p-1 mb-1">
+      <h6 class="card-subtitle text-muted">YouTube Video</h6>
+      <a class="card-text" href="https://www.youtube.com/watch?v={{evidenceEvent.what.videoId}}" target="_blank">
+        {{evidenceEvent.what.videoId}}</a>
+    </div>
+    <div class="col-md-2 p-1 mb-1">
+      <h6 class="card-subtitle text-muted">By</h6>
+      <p class="card-text" title="{{evidenceEvent.who}}">
+        {{evidenceEvent.who | slice:0:6}}...{{evidenceEvent.who | slice:-4}}
+      </p>
+    </div>
+    <div class="col-md-4 p-1 mb-1">
+      <h6 class="card-subtitle text-muted">When</h6>
+      <p class="card-text">{{evidenceEvent.when | date:'medium'}}</p>
+    </div>
+    <div class="col-md-6 p-1 mb-1">
+      <h6 class="card-subtitle text-muted">For Manifestation</h6>
+      <a class="card-text" [routerLink]="['/manifestations', evidenceEvent.what.evidencedId]">
+        {{evidenceEvent.what.evidencedId}}</a>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="form-group row m-1">
+      <label class="control-label col-md-6 p-1" for="inputStake">Stake (not implemented yet)</label>
+      <div class="input-group input-group-sm col-md-6 p-1">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="cly-units">
+            <span class="fas fa-copyright logo-icon"></span>LY Tokens</span>
+        </div>
+        <input id="inputStake" name="inputStake" type="number" step="0.01" class="form-control" disabled
+               aria-describedby="cly-units" [ngModel]="stake" #inputStake="ngModel">
+        <button type="button" disabled class="btn btn-sm btn-success ml-2">Add Stake</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+{
+  "name": "Copyrightly.io",
+  "short_name": "Copyrightly",
+  "description": "ÐApp for Copyright Management",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#830051"
+}

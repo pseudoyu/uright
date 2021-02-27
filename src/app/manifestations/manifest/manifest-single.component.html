@@ -1,0 +1,54 @@
+<h4><span class="fa fa-gavel"></span> Register Your Work</h4>
+<p class="lead">Provide creation title and content hash for registration</p>
+
+<form id="manifest-form" (ngSubmit)="manifest(manifestForm)" #manifestForm="ngForm">
+  <fieldset>
+
+    <!-- Content author select -->
+    <div class="form-group" [class.was-validated]="inputAuthor.dirty || inputAuthor.touched">
+      <label class="control-label" for="inputAuthor">Author*</label>
+      <input id="inputAuthor" name="inputAuthor" type="text" class="form-control" disabled
+             [ngModel]="account" #inputAuthor="ngModel" placeholder="Content author">
+    </div>
+
+    <!-- Content title input -->
+    <div class="form-group" [class.was-validated]="inputTitle.dirty || inputTitle.touched">
+      <label class="control-label" for="inputTitle">Title*</label>
+      <input id="inputTitle" name="inputTitle" type="text" class="form-control" required
+             [(ngModel)]="manifestation.title" #inputTitle="ngModel" placeholder="Content title">
+      <div class="invalid-feedback">A content title is required</div>
+    </div>
+
+    <!-- Content file input -->
+    <div class="form-group" [class.was-validated]="inputHash.dirty || inputHash.touched">
+      <div class="form-check">
+        <input id="upload" name="upload" type="checkbox" class="form-check-input" [(ngModel)]="uploadToIpfs">
+        <label class="control-label" for="upload"><b>Upload</b> content to IPFS so anyone can
+          access it and check authorship.<br> <b>Un-check</b> if you prefer to keep content <b>private</b>
+          and reveal it later. Just keep the original file used to generate the content hash.
+        </label>
+      </div>
+      <label class="control-label" for="inputHash">Content*</label>
+      <input id="inputHash" name="inputHash" type="text" class="form-control"
+             readonly required appManifestUnregistered
+             [(ngModel)]="manifestation.hash" #inputHash="ngModel" placeholder="Loaded content hash">
+      <input id="inputFile" name="inputFile" type="file" class="form-control"
+             (change)="loadFile(inputFile)" #inputFile>
+      <div class="invalid-feedback">A content hash is required, load a file to generate it</div>
+      <div class="invalid-feedback" [hidden]="!inputHash.errors?.manifestUnregistered" style="display:block">
+        Content already registered with title "{{inputHash.errors?.manifestUnregistered?.title}}",
+        click the "Inspect" button to consider filing a complaint if you are the creator of this content
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+      <button id="manifest" type="submit" class="btn btn-success pull-right"
+              [disabled]="!manifestForm.form.valid || !inputHash.value">{{status}}</button>
+      <button id="inspect" type="button" class="btn btn-info pull-right ml-2"
+              [routerLink]="['/manifestations', manifestation.hash]"
+              [hidden]="!inputHash.errors?.manifestUnregistered">Inspect</button>
+    </div>
+
+  </fieldset>
+</form>
