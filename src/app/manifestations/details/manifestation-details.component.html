@@ -1,4 +1,4 @@
-<h3>Manifestation</h3>
+<h3>版权信息</h3>
 
 <div class="card mb-1">
   <div class="card-block row m-1">
@@ -9,31 +9,31 @@
         {{manifestation?.hash}}</a>
     </div>
     <div class="col-md-2 p-1 mb-1">
-      <h6 class="card-subtitle text-muted">Authors</h6>
+      <h6 class="card-subtitle text-muted">音乐人</h6>
       <p class="card-text" *ngFor="let author of manifestation?.authors" title="{{author}}">
         {{author | slice:0:6}}...{{author | slice:-4}}
       </p>
     </div>
     <div class="col-md-3 p-1 mb-1">
-      <h6 class="card-subtitle text-muted">When</h6>
+      <h6 class="card-subtitle text-muted">时间</h6>
       <p class="card-text">{{manifestation?.when | date:'medium'}}</p>
     </div>
     <div class="col-md-1 p-1 mb-1">
-      <h6 class="card-subtitle text-muted">Evidence</h6>
+      <h6 class="card-subtitle text-muted">证据</h6>
       <p class="card-text">{{uploadEvidenceEvents?.length + youTubeEvidenceEvents?.length}}</p>
     </div>
   </div>
 </div>
 
-<button class="btn btn-secondary mb-4" (click)="back()">Back</button>
+<button class="btn btn-secondary mb-4" (click)="back()">返回</button>
 
-<h3>Authorship Evidence</h3>
+<h3>版权证明文件</h3>
 
 <button *ngIf="!addingEvidence()" type="button" class="btn btn-success mb-4"
-        (click)="addingUploadableEvidence = true">Add Uploadable Evidence</button>
+        (click)="addingUploadableEvidence = true">上传证明文件</button>
 
 <button *ngIf="!addingEvidence()" type="button" class="btn btn-success mb-4 ml-2"
-        (click)="addingYouTubeEvidence = true">Add YouTube Evidence</button>
+        (click)="addingYouTubeEvidence = true">上传YouTube证明</button>
 
 <app-upload-evidence *ngIf="addingUploadableEvidence" [manifestation]="manifestation"
                      (cancel)="addingUploadableEvidence = false" (done)="addingUploadableEvidence = false">
@@ -46,9 +46,8 @@
 <div *ngIf="uploadEvidenceEvents?.length + youTubeEvidenceEvents?.length == 0
             && !addingEvidence()" class="card mb-4">
   <div class="card-block row m-1">
-    <h5 class="card-title col-md-12 p-1">No evidence yet</h5>
-    <p class="card-text col-md-12 p-1 alert-danger">Warning! This manifestation can be overwritten if no
-      evidence is provided before {{manifestation?.expiry | date:'medium'}}</p>
+    <h5 class="card-title col-md-12 p-1">暂无证明文件</h5>
+    <p class="card-text col-md-12 p-1 alert-danger">提示！如您未在{{manifestation?.expiry | date:'medium'}}前上传证明文件，版权信息可被覆盖</p>
   </div>
 </div>
 

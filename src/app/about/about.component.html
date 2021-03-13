@@ -1,30 +1,26 @@
 <div class="jumbotron">
-  <h2><span class="fas fa-copyright"></span>opyright<b>LY</b></h2>
-  <p>A Decentralized Application (ÐApp) for Copyright Management based on the Ethereum blockchain.</p>
-  <h3>Features</h3>
+  <h2><span class="fas fa-music"></span> Uright</h2>
+  <p>基于Angular+Solidity+Web3.js，应用IPFS、ENS、Oracles等技术，通过Truffle部署于Ethereum的音乐版权管理系统</p>
+  <h3>功能</h3>
   <ul>
-    <li><b>Manifestations</b>: expressions of authors ideas into pieces of content
-      that can be then used to prove authorship.
+    <li><b>版权注册</b>：将音乐人的作品注册上链，以此证明作品版权
       <ul>
-        <li><a [routerLink]="['/register']">Register</a>:
-          claim single authorship on a piece of content hash.</li>
-        <li><a [routerLink]="['/search']">Search</a>:
-          check if a piece of content is already registered searching by hash.</li>
-        <li><a [routerLink]="['/list']">List Own</a>:
-          look for all the authorship manifestations made by the current user.</li>
-        <li><a [routerLink]="['/list-all']">List All</a>:
-          look for all the authorship manifestations registered by any user.</li>
-        <li><b>Details</b>:
-          From a manifestation search results, or from the list of own manifestations,
-          click "Details" to see all the information about them, including their Evidences.</li>
-        <li><b>Evidences</b>:
-          From the manifestation details it is possible to add new evidence supporting
-          authorship.</li>
+        <li><a [routerLink]="['/register']">注册</a>：
+          以作品文件生成唯一哈希值，以证明作者身份</li>
+        <li><a [routerLink]="['/search']">检索</a>：
+          通过哈希值检查一个作品是否已被注册</li>
+        <li><a [routerLink]="['/list']">我的</a>：
+          查找当前音乐人的所有注册作品</li>
+        <li><a [routerLink]="['/list-all']">所有</a>：
+          查找链上所有已注册作品</li>
+        <li><b>详细信息</b>：
+          单击“详细信息”查看详细信息，包括所有已上传证据</li>
+        <li><b>证明文件</b>：
+          添加新的文件来证明作品版权</li>
       </ul>
-    <li>More coming...</li>
   </ul>
 </div>
 <div>
-  <p><span class="fab fa-github"></span><a href="https://github.com/rogargon/copyrightly.io">
-    https://github.com/rogargon/copyrightly.io</a></p>
+  <p><span class="fab fa-github"></span><a href="https://github.com/pseudoyu/Uright">
+    https://github.com/pseudoyu/Uright</a></p>
 </div>

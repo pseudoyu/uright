@@ -1,25 +1,25 @@
-<h5><span class="fa fa-gavel"></span> Add YouTube Authorship Evidence</h5>
-<p class="lead">Link owned YouTube video to support the authorship claim on the manifestation</p>
+<h5><span class="fa fa-gavel"></span> 添加YouTube证据</h5>
+<p class="lead">通过YouTube视频链接证明作者版权</p>
 
 <form id="evidence-form" (ngSubmit)="addEvidence(evidenceForm)" #evidenceForm="ngForm">
   <fieldset>
 
     <!-- Evidencer input -->
     <div class="form-group" [class.was-validated]="inputEvidencer.dirty || inputEvidencer.touched">
-      <label class="control-label" for="inputEvidencer">Evidencer*</label>
+      <label class="control-label" for="inputEvidencer">证明人*</label>
       <input id="inputEvidencer" name="inputEvidencer" type="text" class="form-control" disabled
              [ngModel]="account" #inputEvidencer="ngModel">
     </div>
 
     <!-- Manifestation hash input -->
     <div class="form-group" [class.was-validated]="inputEvidenced.dirty || inputEvidenced.touched">
-      <label class="control-label" for="inputEvidenced">Manifestation*</label>
+      <label class="control-label" for="inputEvidenced">作品*</label>
       <input id="inputEvidenced" name="inputEvidenced" type="text" class="form-control" disabled
              [ngModel]="youtubeEvidence.evidencedId" #inputEvidenced="ngModel">
     </div>
 
     <!-- CLY stake input -->
-    <div class="form-group" [class.was-validated]="inputStake.dirty || inputStake.touched">
+    <!-- <div class="form-group" [class.was-validated]="inputStake.dirty || inputStake.touched">
       <label class="control-label" for="inputStake">Stake* (not implemented yet)</label>
       <div class="input-group">
         <div class="input-group-prepend">
@@ -29,20 +29,20 @@
         <input id="inputStake" name="inputStake" type="number" step="0.01" class="form-control"
                aria-describedby="cly-units" [ngModel]="stake" #inputStake="ngModel">
       </div>
-    </div>
+    </div> -->
 
     <!-- VideoId input -->
     <div class="form-group" [class.was-validated]="inputVideoId.dirty || inputVideoId.touched">
-      <label class="control-label" for="inputVideoId">YouTube Video Identifier*</label>
+      <label class="control-label" for="inputVideoId">YouTube视频ID*</label>
       <input id="inputVideoId" name="inputVideoId" type="text" class="form-control"
              required [(ngModel)]="youtubeEvidence.videoId"
              #inputVideoId="ngModel" placeholder="Video Id">
-      <div class="invalid-feedback">A YouTube video identifier is required</div>
+      <div class="invalid-feedback">请提供YouTube视频ID</div>
     </div>
 
     <!-- Evidence price input -->
     <div class="form-group">
-      <label class="control-label" for="inputPrice">Evidence validation cost (Ether)*</label>
+      <label class="control-label" for="inputPrice">证明费用（Ether）*</label>
       <input id="inputPrice" name="inputPrice" type="number" class="form-control"
              readonly required [(ngModel)]="price" #inputPrice="ngModel">
     </div>
@@ -52,11 +52,8 @@
       <div class="form-check">
         <input id="linkedFromYouTube" name="linkedFromYouTube" type="checkbox"
                class="form-check-input" [(ngModel)]="linkedFromYouTube">
-        <label class="control-label" for="linkedFromYouTube">The <b>description of the YouTube video
-          includes a link to this manifestation</b>, as a way to proof that I'm its owner.<br>
-          <small>For instance, you can copy the following fragment and paste it as part of the video
-            description in YouTube. Please, do this prior to registering this evidence.
-            Otherwise, the evidence will not be valid and the validation cost lost.
+        <label class="control-label" for="linkedFromYouTube">视频描述中包含到这个版权信息的文件，以证明自己是作品所有者<br>
+          <small>如：复制以下文字至视频描述
           </small>
         </label>
       </div>
@@ -66,9 +63,9 @@
     <!-- Button -->
     <div class="form-group">
       <button id="register" type="submit" class="btn btn-success pull-right"
-              [disabled]="!evidenceForm.form.valid || !inputVideoId.value || !linkedFromYouTube">Register</button>
+              [disabled]="!evidenceForm.form.valid || !inputVideoId.value || !linkedFromYouTube">注册</button>
       <button id="cancel" type="button" class="btn btn-danger pull-right ml-2"
-              (click)="cancelEvidence()">Cancel</button>
+              (click)="cancelEvidence()">取消</button>
     </div>
 
   </fieldset>

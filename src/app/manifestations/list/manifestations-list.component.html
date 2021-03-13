@@ -1,11 +1,11 @@
 
-<p *ngIf="!all">You have registered { manifestationEvents?.length, plural,
+<p *ngIf="!all">已注册 { manifestationEvents?.length, plural,
   =1 { 1 manifestation }
-  other { {{manifestationEvents?.length}} manifestations} }
+  other { {{manifestationEvents?.length}} 个作品} }
 </p>
-<p *ngIf="all">There { manifestationEvents?.length, plural,
+<p *ngIf="all">已注册 { manifestationEvents?.length, plural,
   =1 { is 1 manifestation }
-  other { are {{manifestationEvents?.length}} manifestations} } registered
+  other { {{manifestationEvents?.length}} 个作品} } 
 </p>
 
 <div class="card mb-4" *ngFor="let event of manifestationEvents">
@@ -17,17 +17,17 @@
         {{event?.what.hash}}</a>
     </div>
     <div class="col-md-2 p-1 mb-1">
-      <h6 class="card-subtitle text-muted">Registerer</h6>
+      <h6 class="card-subtitle text-muted">注册人</h6>
       <p class="card-text" title="{{event?.who}}">
         {{event?.who | slice:0:6}}...{{event?.who | slice:-4}}
       </p>
     </div>
     <div class="col-md-4 p-1 mb-1">
-      <h6 class="card-subtitle text-muted">Registered</h6>
+      <h6 class="card-subtitle text-muted">注册时间</h6>
       <p class="card-text">{{event?.when | date:'medium'}}</p>
     </div>
   </div>
   <div class="card-footer">
-    <a [routerLink]="['/manifestations', event?.what?.hash]" class="btn btn-info">Details</a>
+    <a [routerLink]="['/manifestations', event?.what?.hash]" class="btn btn-info">详情</a>
   </div>
 </div>
