@@ -5,10 +5,9 @@ import "./Evidencable.sol";
 
 contract YouTubeEvidences is usingOraclize {
     string private constant HTML = "html(https://www.youtube.com/watch?v=";
-    string private constant XPATH = ").xpath(count(//div[contains(@id,'description')]//a[contains(@href,'";
-
+    string private constant XPATH = ").xpath(count(//meta[@name='description' and contains(@content,'";
     mapping(bytes32=>YouTubeEvidence) public evidences;
-
+    
     struct YouTubeEvidence {
         address registry;
         address evidencer;
