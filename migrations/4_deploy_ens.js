@@ -23,9 +23,9 @@ module.exports = async function (deployer, network, accounts) {
       await ens.setSubnodeOwner(namehash.hash('reverse'), sha3('addr'), reverseResolver.address);
 
       return Promise.all([
-        setENSName(ens, resolver, reverseResolver, accounts[0], 'Alice', owner),
-        setENSName(ens, resolver, reverseResolver, accounts[1], 'Bob', owner),
-        setENSName(ens, resolver, reverseResolver, accounts[2], 'Charlie', owner),
+        setENSName(ens, resolver, reverseResolver, accounts[0], 'Arthur', owner),
+        setENSName(ens, resolver, reverseResolver, accounts[1], 'Misty', owner),
+        setENSName(ens, resolver, reverseResolver, accounts[2], 'Marshal', owner),
       ]);
     }
   });
