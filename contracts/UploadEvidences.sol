@@ -2,30 +2,29 @@ pragma solidity >=0.4.21 <0.6.0;
 
 import "./Evidencable.sol";
 
-/// @title Contract to register evidence based on uploading content to IPFS
-/// @author Roberto García (http://rhizomik.net/~roberto/)
+/// @title 用于实现证据上传功能的合约（基于上传至IPFS网络）
+/// @author Yu Zhang
 contract UploadEvidences {
 
-    /// @notice Allows checking if some content has already been used as evidence.
+    /// @notice 用于检查该内容是否已被用作证据
     mapping(string => bool) private existingEvidence;
 
     event UploadEvidenceEvent(address indexed registry, bytes32 indexed evidencedIdHash,
         string evidencedHash, string evidenceHash, address indexed evidencer);
 
-    /// @notice Get if the evidence with content hash `evidenceHash` is already registered.
-    /// @param evidenceHash Hash of the evidence content, for instance IPFS Base58 Hash
+    /// @notice 如果证据已被注册，返回
+    /// @param evidenceHash 作品支持证据哈希值，如IPFS的Base58哈希
     function getEvidenceExistence(string memory evidenceHash) public view returns (bool) {
         return existingEvidence[evidenceHash];
     }
 
-    /// @notice Add evidence for item in `registry` identified by `evidencedHash`. The evidence
-    /// has `evidenceHash` and is registered by `msg.sender`.
-    /// @dev The address of the registry containing the evidenced item is required to update
-    /// its evidence count. Evidence is stored just in the log as UploadEvidenceEvent events.
-    /// Note: the evidenceHash is hashed using keccak256 before emitting the event so it can be indexed.
-    /// @param registry The address of the contract holding the items evidenced
-    /// @param evidencedHash Hash used by the registry contract to identify the item receiving evidence
-    /// @param evidenceHash Hash of the uploaded content to be used as evidence, for instance IPFS Base58 Hash
+    /// @notice 添加支持证据，证据哈希值为`evidenceHash`，注册者为`msg.sender`
+    /// @dev 更新包含此作品的证据计数
+    /// 证据作为事件存在于日志中
+    /// 注：evidenceHash在触发事件前用keccak256进行哈希化，所以可被索引
+    /// @param registry 证据提供者的地址
+    /// @param evidencedHash 已注册证据的哈希值
+    /// @param evidenceHash 作品支持证据哈希值，如IPFS的Base58哈希
     function addEvidence(address registry, string memory evidencedHash, string memory evidenceHash) public {
         require(!existingEvidence[evidenceHash], "The evidence has been already registered");
         Evidencable(registry).addEvidence(evidencedHash);

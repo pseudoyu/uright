@@ -6,8 +6,9 @@ import "zos-lib/contracts/upgradeability/AdminUpgradeabilityProxy.sol";
 import "./ExpirableLib.sol";
 import "./Evidencable.sol";
 
-/// @title Contract for copyright authorship registration through creations manifestations
-/// @author Roberto García (http://rhizomik.net/~roberto/)
+/// @title 用于实现音乐版权注册功能的合约
+/// @author Yu Zhang
+
 contract Manifestations is Pausable, Initializable, Evidencable {
 
     using ExpirableLib for ExpirableLib.TimeAndExpiry;
@@ -28,34 +29,35 @@ contract Manifestations is Pausable, Initializable, Evidencable {
         timeToExpiry = _timeToExpiry;
     }
 
-    /// @dev To be used when proxied (upgradeability) to initialize proxy storage
+    /// @dev 初始化代理（可升级性）存储
     function initialize(uint32 _timeToExpiry) public initializer {
         _addPauser(msg.sender);
         _transferOwnership(msg.sender);
         timeToExpiry = _timeToExpiry;
     }
 
-    /// @dev Modifier implementing the common logic for single and joint authorship.
-    /// Checks title and that hash not registered or expired. Then stores title and sets expiry.
-    /// Finally, emits ManifestEvent
-    /// @param hash Hash of the manifestation content, for instance IPFS Base58 Hash
-    /// @param title The title of the manifestation
+    /// @dev 函数修改器用于实现音乐人（或联合创作者）的公共逻辑
+    /// 检查音乐作品标题及哈希值未注册、未过期
+    /// 存储标题，设置过期时间
+    /// 触发ManifestEvent事件
+    /// @param hash 作品内容哈希值，如IPFS的Base58哈希
+    /// @param title 音乐作品标题
     modifier registerIfAvailable(string memory hash, string memory title) {
-        require(bytes(title).length > 0, "A title is required");
+        require(bytes(title).length > 0, "请填写音乐作品标题");
         require(manifestations[hash].authors.length == 0 ||
                 (manifestations[hash].time.isExpired() && isUnevidenced(hash)),
-            "Already registered and not expired or with evidence");
+            "音乐作品已注册且未过期（已上传支持证据）");
         _;
         manifestations[hash].title = title;
         manifestations[hash].time.setExpiry(timeToExpiry);
         emit ManifestEvent(hash, title, msg.sender);
     }
 
-    /// @notice Register single authorship for `msg.sender` of the manifestation with title `title`
-    /// and hash `hash`. Requires hash not previously registered or expired.
-    /// @dev To be used when there is just one author, which is considered to be the message sender
-    /// @param hash Hash of the manifestation content, for instance IPFS Base58 Hash
-    /// @param title The title of the manifestation
+    /// @notice 注册作品音乐人为`msg.sender`，作品标题为 `title`，哈希值为`hash`
+    /// 要求此哈希值未被注册或已经过期
+    /// @dev 当作品仅有一个音乐人时调用，注册作品音乐人为`msg.sender`
+    /// @param hash 作品内容哈希值，如IPFS的Base58哈希
+    /// @param title 作品标题
     function manifestAuthorship(string memory hash, string memory title)
     public registerIfAvailable(hash, title) whenNotPaused() {
         address[] memory authors = new address[](1);
@@ -63,18 +65,15 @@ contract Manifestations is Pausable, Initializable, Evidencable {
         manifestations[hash].authors = authors;
     }
 
-    /// @notice Register joint authorship for `msg.sender` plus additional authors
-    /// `additionalAuthors` of the manifestation with title `title` and hash `hash`.
-    /// Requires hash not previously registered or expired and at most 64 authors,
-    /// including the one registering.
-    /// @dev To be used when there are multiple authors
-    /// @param hash Hash of the manifestation content, for instance IPFS Base58 Hash
-    /// @param title The title of the manifestation
-    /// @param additionalAuthors The additional authors,
-    /// including the one registering that becomes the first author
+    /// @notice 注册作品音乐人为`msg.sender`以及额外创作者为`additionalAuthors`
+    /// 作品标题为 `title`，哈希值为`hash`，要求此哈希值未被注册或已经过期，且最多64个作者（含注册者）
+    /// @dev 当作品有多个创作者时调用
+    /// @param hash 作品内容哈希值，如IPFS的Base58哈希
+    /// @param title 作品标题
+    /// @param additionalAuthors 联合创作者（含注册者）
     function manifestJointAuthorship(string memory hash, string memory title, address[] memory additionalAuthors)
     public registerIfAvailable(hash, title) whenNotPaused() {
-        require(additionalAuthors.length < 64, "Joint authorship limited to 64 authors");
+        require(additionalAuthors.length < 64, "联合创作者最多为64名");
         address[] memory authors = new address[](additionalAuthors.length + 1);
         authors[0] = msg.sender;
         for (uint8 i = 0; i < additionalAuthors.length; i++)
@@ -82,9 +81,9 @@ contract Manifestations is Pausable, Initializable, Evidencable {
         manifestations[hash].authors = authors;
     }
 
-    /// @notice Retrieve the title and authors of the manifestation with content hash `hash`.
-    /// @param hash Hash of the manifestation content, for instance IPFS Base58 Hash
-    /// @return The title and authors of the manifestation
+    /// @notice 通过音乐作品哈希值来获取标题和作者
+    /// @param hash 作品内容哈希值，如IPFS的Base58哈希
+    /// @return 作品标题与创作者
     function getManifestation(string memory hash) public view
     returns (string memory, address[] memory, uint256, uint256) {
         return (manifestations[hash].title,
@@ -93,8 +92,8 @@ contract Manifestations is Pausable, Initializable, Evidencable {
                 manifestations[hash].time.expiryTime);
     }
 
-    /// @notice Adds an evidence if there is already a manifestation for `hash`.
-    /// @param hash Hash of the manifestation content, for instance IPFS Base58 Hash
+    /// @notice 如果作品已注册，添加一个支持证据
+    /// @param hash 作品内容哈希值，如IPFS的Base58哈希
     function addEvidence(string memory hash) public {
         require(bytes(manifestations[hash].title).length > 0, "The manifestation evidenced should exist");
         super.addEvidence(hash);

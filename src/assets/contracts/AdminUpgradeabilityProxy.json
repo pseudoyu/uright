@@ -1152,10 +1152,16 @@
       "links": {},
       "address": "0x75c35C980C0d37ef46DF04d31A140b65503c0eEd",
       "transactionHash": "0x7567b1ca34f7db45573f21f32f8b14df491a4ce9a87b15113df35d5230939e7f"
+    },
+    "1620806742585": {
+      "events": {},
+      "links": {},
+      "address": "0x75c35C980C0d37ef46DF04d31A140b65503c0eEd",
+      "transactionHash": "0x7567b1ca34f7db45573f21f32f8b14df491a4ce9a87b15113df35d5230939e7f"
     }
   },
   "schemaVersion": "3.0.9",
-  "updatedAt": "2021-05-10T11:12:17.461Z",
+  "updatedAt": "2021-05-12T08:07:03.181Z",
   "devdoc": {
     "details": "Extends from BaseAdminUpgradeabilityProxy with a constructor for  initializing the implementation, admin, and init data.",
     "methods": {
