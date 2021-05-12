@@ -1,12 +1,13 @@
 {
   "authors": [
-    "Roberto García <roberto@rhizomik.net>"
+    "Yu Zhang"
   ],
   "dependencies": {
     "oraclize-api": "1.0.0"
   },
-  "description": "ÐApp for Copyright Management",
+  "description": "A Decentralized Application (ÐApp) for Music Copyright Management and Protection based on Ethereum",
   "keywords": [
+    "music",
     "copyright",
     "media"
   ],

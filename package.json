@@ -91,7 +91,7 @@
     "type": "git",
     "url": "git+https://github.com/pseudoyu/Uright.git"
   },
-  "author": "pseudoyu",
+  "author": "Yu Zhang",
   "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://github.com/pseudoyu/Uright/issues"
