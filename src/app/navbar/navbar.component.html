@@ -10,44 +10,37 @@
 
   <div class="collapse navbar-collapse" id="navbarContent" [ngbCollapse]="isCollapsed">
     <ul class="navbar-nav mr-auto">
-      <!-- <li class="nav-item dropdown" ngbDropdown>
+      <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
+        <a class="nav-link" [routerLink]="['/about']"><span class="fas fa-home"></span> Home </a>
+      </li>
+      <li class="nav-item dropdown" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="ManifestationsDropdown" role="button" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>版权注册</a>
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle><span class="fas fa-copyright"></span> Certificate</a>
         <div class="dropdown-menu" aria-labelledby="ManifestationsDropdown" ngbDropdownMenu>
           <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
-             [routerLink]="['/list']"><span class="fa fa-list"></span> 我的</a>
-          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
-             [routerLink]="['/list-all']"><span class="fa fa-list"></span> 所有</a>
-          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
-             [routerLink]="['/register']"><span class="fa fa-gavel"></span> 注册</a>
-          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
-             [routerLink]="['/search']"><span class="fa fa-search"></span> 检索</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item">More coming...</a>
+             [routerLink]="['/register']"><span class="fa fa-registered"></span> Register</a>
+             <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/list']"><span class="fa fa-user-graduate"></span> My Music</a>
         </div>
-      </li> -->
-      <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
-        <a class="nav-link" [routerLink]="['/about']"><span class="fas fa-home"></span> 主页 </a>
       </li>
-      <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
-        <a class="nav-link" [routerLink]="['/register']"><span class="fas fa-copyright"></span> 注册 </a>
-      </li>
-      <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
-        <a class="nav-link" [routerLink]="['/list-all']"><span class="fas fa-book-open"></span> 版权库 </a>
-      </li>
-      <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
-        <a class="nav-link" [routerLink]="['/search']"><span class="fas fa-search"></span> 检索 </a>
-      </li>
-      <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
-        <a class="nav-link" [routerLink]="['/list']"><span class="fas fa-user-graduate"></span> 我的 </a>
-      </li>
-      <!-- <li class="nav-item dropdown" ngbDropdown>
+
+      <li class="nav-item dropdown" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="ComplaintsDropdown" role="button" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Complaints</a>
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle><span class="fa fa-gavel"></span> Complaints</a>
         <div class="dropdown-menu" aria-labelledby="ComplaintsDropdown" ngbDropdownMenu>
-          <a class="dropdown-item">Work in progress...</a>
+          <a class="dropdown-item">Still Developing..</a>
         </div>
-      </li> -->
+      </li>
+      <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
+        <a class="nav-link" [routerLink]="['/list-all']"><span class="fas fa-book-open"></span> Music Library </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/pseudoyu/Uright"  target="_blank"><span class="fas fa-hotel"></span> Uright Community</a>
+      </li>
+      <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
+        <a class="nav-link" [routerLink]="['/search']"><span class="fas fa-search"></span> </a>
+      </li>
+
     </ul>
     <ul class="navbar-nav">
       <li class="nav-item">

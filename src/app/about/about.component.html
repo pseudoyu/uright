@@ -1,26 +1,170 @@
-<div class="jumbotron">
-  <h2><span class="fas fa-music"></span> Uright</h2>
-  <p>基于Angular+Solidity+Web3.js，应用IPFS、ENS、Oracles等技术，通过Truffle部署于Ethereum的音乐版权管理系统</p>
-  <h3>功能</h3>
-  <ul>
-    <li><b>版权注册</b>：将音乐人的作品注册上链，以此证明作品版权
-      <ul>
-        <li><a [routerLink]="['/register']">注册</a>：
-          以作品文件生成唯一哈希值，以证明作者身份</li>
-        <li><a [routerLink]="['/search']">检索</a>：
-          通过哈希值检查一个作品是否已被注册</li>
-        <li><a [routerLink]="['/list']">我的</a>：
-          查找当前音乐人的所有注册作品</li>
-        <li><a [routerLink]="['/list-all']">版权库</a>：
-          查找链上所有已注册作品</li>
-        <li><b>详细信息</b>：
-          单击“详细信息”查看详细信息，包括所有已上传证据</li>
-        <li><b>证明文件</b>：
-          添加新的文件来证明作品版权</li>
-      </ul>
-  </ul>
-</div>
+<body>
 <div>
-  <p><span class="fab fa-github"></span><a href="https://github.com/pseudoyu/Uright">
-    https://github.com/pseudoyu/Uright</a></p>
+<!-- <div class="jumbotron"> -->
+  <header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-10 align-self-end">
+                <h1 class="text-uppercase text-white font-weight-bold"><span class="fas fa-music"></span> Uright</h1>
+                <hr class="divider my-4" />
+            </div>
+            <div class="col-lg-8 align-self-baseline">
+                <p class="text-white-75 font-weight-light mb-5">基于Angular+Solidity+Web3.js，应用IPFS、ENS、Oracles等技术，通过Truffle部署于Ethereum的音乐版权管理系统</p>
+                <a class="btn btn-primary btn-xl js-scroll-trigger" [routerLink]="['/list-all']">查看版权库</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- About-->
+<section class="page-section bg-primary" id="about">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+              <h2 class="text-white mt-0">区块链 + 音乐版权</h2>
+              <hr class="divider light my-4" />
+              <p class="text-white-50 mb-4">将音乐人的作品注册上链，以此证明作品版权。以作品文件生成唯一哈希值，以证明作者身份</p>
+              <a class="btn btn-light btn-xl js-scroll-trigger" [routerLink]="['/register']">注册你的作品</a>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Services-->
+<section class="page-section" id="services">
+  <div class="container">
+      <h2 class="text-center mt-0">我们的目标</h2>
+      <hr class="divider my-4" />
+      <div class="row">
+          <div class="col-lg-3 col-md-6 text-center">
+              <div class="mt-5">
+                  <i class="fas fa-4x fa-gem text-primary mb-4"></i>
+                  <h3 class="h4 mb-2">独立音乐人收入</h3>
+                  <p class="text-muted mb-0">实现去中介化，脱离第三方机构，解决独立音乐人低收入问题</p>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+              <div class="mt-5">
+                  <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
+                  <h3 class="h4 mb-2">音乐溯源与确权</h3>
+                  <p class="text-muted mb-0">通过区块链解决音乐文件难以进行溯源与确权的问题</p>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+              <div class="mt-5">
+                  <i class="fas fa-4x fa-globe text-primary mb-4"></i>
+                  <h3 class="h4 mb-2">去中心化存储</h3>
+                  <p class="text-muted mb-0">通过IPFS去中心化文件存储系统存放音乐文件与支持证据</p>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+              <div class="mt-5">
+                  <i class="fas fa-4x fa-heart text-primary mb-4"></i>
+                  <h3 class="h4 mb-2">自由的音乐人社区</h3>
+                  <p class="text-muted mb-0">打造自由、平等、公开、诚信的音乐人交流社区</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+  <!-- Portfolio-->
+  <div id="portfolio">
+    <div class="container-fluid p-0">
+        <div class="row no-gutters">
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg">
+                    <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">音乐人1</div>
+                        <div class="project-name">音乐作品1</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="assets/img/portfolio/fullsize/2.jpg">
+                    <img class="img-fluid" src="assets/img/portfolio/thumbnails/2.jpg" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">音乐人2</div>
+                        <div class="project-name">音乐作品2</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="assets/img/portfolio/fullsize/3.jpg">
+                    <img class="img-fluid" src="assets/img/portfolio/thumbnails/3.jpg" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">音乐人3</div>
+                        <div class="project-name">音乐作品3</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="assets/img/portfolio/fullsize/4.jpg">
+                    <img class="img-fluid" src="assets/img/portfolio/thumbnails/4.jpg" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">音乐人4</div>
+                        <div class="project-name">音乐作品4</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="assets/img/portfolio/fullsize/5.jpg">
+                    <img class="img-fluid" src="assets/img/portfolio/thumbnails/5.jpg" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">音乐人5</div>
+                        <div class="project-name">音乐作品5</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="assets/img/portfolio/fullsize/6.jpg">
+                    <img class="img-fluid" src="assets/img/portfolio/thumbnails/6.jpg" alt="..." />
+                    <div class="portfolio-box-caption p-3">
+                        <div class="project-category text-white-50">音乐人6</div>
+                        <div class="project-name">音乐作品6</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- Contact-->
+  <section class="page-section" id="contact">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="mt-0">项目地址</h2>
+                <hr class="divider my-4" />
+                <p class="text-muted mb-5"><span class="fab fa-github"></span><a href="https://github.com/pseudoyu/Uright">
+                  https://github.com/pseudoyu/Uright</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+                <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
+                <div>+86 15382305580</div>
+            </div>
+            <div class="col-lg-4 mr-auto text-center">
+                <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
+                <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
+                <a class="d-block" href="mailto:pseudoyu@connect.hku.hk">pseudoyu@connect.hku.hk</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <!-- Footer-->
+  <footer class="bg-light py-5">
+    <div class="container">
+        <div class="small text-center text-muted">
+            Copyright &copy; 2021
+            <!-- This script automatically adds the current year to your website footer-->
+            <!-- (credit: https://updateyourfooter.com/)-->
+            - Uright@HKU
+        </div>
+    </div>
+</footer>
+
 </div>
