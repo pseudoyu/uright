@@ -30,15 +30,25 @@ Uright ÐApp通过Web客户端对音乐人和用户提供音乐版权管理服�
 
 1. 版权注册：以作品文件生成唯一哈希值，将音乐人的作品注册上链，以此证明作品版权
 
+![uright_register](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_register.png)
+
 - 注册从未注册的新作品
 - 注册已存在注册记录的作品并进行申诉
 - 添加支撑材料来证明作品版权
 
-2. 版权检索：通过哈希值检查一个作品是否已被注册
+![uright_evidence_upload](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_evidence_upload.png)
+
+![uright_youtube_evidence](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_youtube_evidence.png)
+
+1. 版权检索：通过哈希值检查一个作品是否已被注册
+
+![uright_music_search](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_music_search.png)
 
 - 我的：查找当前音乐人的所有注册作品
 - 版权库：查找链上所有已注册作品
 - 详细信息：单击“详细信息”查看详细信息，包括所有已上传证据
+
+![uright_music_library](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_music_library.png)
 
 ### 核心技术
 
