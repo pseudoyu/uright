@@ -18,6 +18,10 @@ Uright去中心化应用允许音乐人（内容所有者）将他们的作品�
 
 项目地址：[GitHub](https://github.com/pseudoyu/Uright)
 
+### 架构
+
+![uright_architecture](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_architecture.png)
+
 ### 功能
 
 Uright ÐApp通过Web客户端对音乐人和用户提供音乐版权管理服务
