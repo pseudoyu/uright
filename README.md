@@ -1,5 +1,7 @@
 # Uright - 区块链音乐版权管理ÐApp
 
+![uright_chain](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_chain.png)
+
 ### 简介
 
 基于Angular+Solidity+Web3.js，应用IPFS、ENS、Oracles等技术，通过Truffle部署于Ethereum的音乐版权管理Decentralized Application (ÐApp)。
