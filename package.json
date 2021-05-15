@@ -9,7 +9,7 @@
     "lint": "npm-run-all -p -c solhint nglint",
     "solhint": "solhint ./contracts/*.sol",
     "nglint": "ng lint",
-    "network": "ganache-cli -m 'candy maple cake sugar pudding cream honey rich smooth crumble sweet treat'",
+    "network": "ganache-cli -m 'nurse industry garden music guard physical steel gain feed bonus actress own'",
     "migrate": "truffle migrate",
     "ethereum-bridge": "ethereum-bridge --dev",
     "test": "npm-run-all -p -c soltest ngtest",

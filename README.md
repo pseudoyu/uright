@@ -24,32 +24,6 @@ Uright去中心化应用允许音乐人（内容所有者）将他们的作品�
 
 ![uright_architecture](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_architecture.png)
 
-### 功能
-
-Uright ÐApp通过Web客户端对音乐人和用户提供音乐版权管理服务
-
-1. 版权注册：以作品文件生成唯一哈希值，将音乐人的作品注册上链，以此证明作品版权
-
-![uright_register](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_register.png)
-
-- 注册从未注册的新作品
-- 注册已存在注册记录的作品并进行申诉
-- 添加支撑材料来证明作品版权
-
-![uright_evidence_upload](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_evidence_upload.png)
-
-![uright_youtube_evidence](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_youtube_evidence.png)
-
-2. 版权检索：通过哈希值检查一个作品是否已被注册
-
-![uright_music_search](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_music_search.png)
-
-- 我的：查找当前音乐人的所有注册作品
-- 版权库：查找链上所有已注册作品
-- 详细信息：单击“详细信息”查看详细信息，包括所有已上传证据
-
-![uright_music_library](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_music_library.png)
-
 ### 核心技术
 
 #### IPFS
@@ -74,21 +48,9 @@ Oracle模块集成在上传YouTube证据的智能合约，通过YouTube的视频
 
 为了使作品注册合约具备可升级性，引入ZeppelinOS中的AdminUpgradeabilityProxy，通过中继代理的方式实现了委任模式。
 
-### 智能合约详解
-
-#### Manifestations.sol
-
-此智能合约用于注册作品，通过将作品元数据（目前为标题）及内容的IPFS 哈希值与作者身份（即以太坊账户地址）进行关联，以证明作品所有权，同一作品可声明为单人作者或联合作者。此外，如用一个已经注册的内容哈希重新注册新作品，系统会检测为失败。
-
-#### UploadEvidences.sol
-
-此智能合约主要用于支持材料登记，通过将作品文件内容上传至IPFS文件系统进行证据登记。对于同一个作品，可以添加多个证据（但不能重复添加）。
-
-#### ExpirableLib.sol
-
-此智能合约主要用于管理作品创建和到期时间的项目逻辑，实现作品注册（或申诉）的时效性。
-
 ### 设计模式
+
+![uright_design_architecture](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_design_architecture.png)
 
 Uright项目智能合约的设计有利于模块化和可重用性。比如，将验证过期功能实现为一个实体库；以及"Evidencable"库使注册作品可累积多项支持材料，也可以在后续申诉功能等研发中提供便利。
 
@@ -127,3 +89,43 @@ Uright项目从ZeppelinOS和OpenZeppelin包中导入了一些库用于功能实�
 - Pausable: 实现"Circuit Breaker (断路器模式) / Emergency Stop"设计模式，通过拓展Ownable以实现只有拥有者可以停止
 - SafeMath: 用于避免整数上溢和下溢问题
 - OraclizeAPI包，usingOraclize，用于检验YouTube视频是否属于特定用户且绑定至版权作品
+
+### 智能合约详解
+
+#### Manifestations.sol
+
+此智能合约用于注册作品，通过将作品元数据（目前为标题）及内容的IPFS 哈希值与作者身份（即以太坊账户地址）进行关联，以证明作品所有权，同一作品可声明为单人作者或联合作者。此外，如用一个已经注册的内容哈希重新注册新作品，系统会检测为失败。
+
+#### UploadEvidences.sol
+
+此智能合约主要用于支持材料登记，通过将作品文件内容上传至IPFS文件系统进行证据登记。对于同一个作品，可以添加多个证据（但不能重复添加）。
+
+#### ExpirableLib.sol
+
+此智能合约主要用于管理作品创建和到期时间的项目逻辑，实现作品注册（或申诉）的时效性。
+
+### 功能
+
+Uright ÐApp通过Web客户端对音乐人和用户提供音乐版权管理服务
+
+1. 版权注册：以作品文件生成唯一哈希值，将音乐人的作品注册上链，以此证明作品版权
+
+![uright_register](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_register.png)
+
+- 注册从未注册的新作品
+- 注册已存在注册记录的作品并进行申诉
+- 添加支撑材料来证明作品版权
+
+![uright_evidence_upload](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_evidence_upload.png)
+
+![uright_youtube_evidence](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_youtube_evidence.png)
+
+2. 版权检索：通过哈希值检查一个作品是否已被注册
+
+![uright_music_search](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_music_search.png)
+
+- 我的：查找当前音乐人的所有注册作品
+- 版权库：查找链上所有已注册作品
+- 详细信息：单击“详细信息”查看详细信息，包括所有已上传证据
+
+![uright_music_library](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_music_library.png)
