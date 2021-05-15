@@ -40,7 +40,7 @@ Uright ÐApp通过Web客户端对音乐人和用户提供音乐版权管理服�
 
 ![uright_youtube_evidence](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_youtube_evidence.png)
 
-1. 版权检索：通过哈希值检查一个作品是否已被注册
+2. 版权检索：通过哈希值检查一个作品是否已被注册
 
 ![uright_music_search](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_music_search.png)
 
