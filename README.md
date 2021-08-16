@@ -1,6 +1,6 @@
 # Uright - 区块链音乐版权管理ÐApp
 
-![uright_chain](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_chain.png)
+![uright_chain](https://cdn.jsdelivr.net/gh/pseudoyu/image_hosting@master/hugo_images/uright_chain.png)
 
 ### 简介
 
@@ -22,7 +22,7 @@ Uright去中心化应用允许音乐人（内容所有者）将他们的作品�
 
 ### 架构
 
-![uright_architecture](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_architecture.png)
+![uright_architecture](https://cdn.jsdelivr.net/gh/pseudoyu/image_hosting@master/hugo_images/uright_architecture.png)
 
 ### 核心技术
 
@@ -50,7 +50,7 @@ Oracle模块集成在上传YouTube证据的智能合约，通过YouTube的视频
 
 ### 设计模式
 
-![uright_design_architecture](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_design_architecture.png)
+![uright_design_architecture](https://cdn.jsdelivr.net/gh/pseudoyu/image_hosting@master/hugo_images/uright_design_architecture.png)
 
 Uright项目智能合约的设计有利于模块化和可重用性。比如，将验证过期功能实现为一个实体库；以及"Evidencable"库使注册作品可累积多项支持材料，也可以在后续申诉功能等研发中提供便利。
 
@@ -110,22 +110,22 @@ Uright ÐApp通过Web客户端对音乐人和用户提供音乐版权管理服�
 
 1. 版权注册：以作品文件生成唯一哈希值，将音乐人的作品注册上链，以此证明作品版权
 
-![uright_register](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_register.png)
+![uright_register](https://cdn.jsdelivr.net/gh/pseudoyu/image_hosting@master/hugo_images/uright_register.png)
 
 - 注册从未注册的新作品
 - 注册已存在注册记录的作品并进行申诉
 - 添加支撑材料来证明作品版权
 
-![uright_evidence_upload](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_evidence_upload.png)
+![uright_evidence_upload](https://cdn.jsdelivr.net/gh/pseudoyu/image_hosting@master/hugo_images/uright_evidence_upload.png)
 
-![uright_youtube_evidence](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_youtube_evidence.png)
+![uright_youtube_evidence](https://cdn.jsdelivr.net/gh/pseudoyu/image_hosting@master/hugo_images/uright_youtube_evidence.png)
 
 2. 版权检索：通过哈希值检查一个作品是否已被注册
 
-![uright_music_search](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_music_search.png)
+![uright_music_search](https://cdn.jsdelivr.net/gh/pseudoyu/image_hosting@master/hugo_images/uright_music_search.png)
 
 - 我的：查找当前音乐人的所有注册作品
 - 版权库：查找链上所有已注册作品
 - 详细信息：单击“详细信息”查看详细信息，包括所有已上传证据
 
-![uright_music_library](https://raw.githubusercontent.com/pseudoyu/image_hosting/master/hugo_images/uright_music_library.png)
+![uright_music_library](https://cdn.jsdelivr.net/gh/pseudoyu/image_hosting@master/hugo_images/uright_music_library.png)

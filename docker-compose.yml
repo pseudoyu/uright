@@ -1,0 +1,12 @@
+version: '2'
+services:
+  uright:
+    image: pseudoyu/uright
+    container_name: uright
+    expose:
+    - "80"
+    environment:
+    - VIRTUAL_HOST=uright.me
+    - LETSENCRYPT_HOST=uright.me
+    - LETSENCRYPT_EMAIL=pseudoyu@connect.hku.hk
+    network_mode: "bridge"
