@@ -4,19 +4,19 @@
 
 ### 简介
 
-基于Angular+Solidity+Web3.js，应用IPFS、ENS、Oracles等技术，通过Truffle部署于Ethereum的音乐版权管理Decentralized Application (ÐApp)。
+基于 Angular+Solidity+Web3.js，应用 IPFS、ENS、Oracles 等技术，通过 Truffle 部署于 Ethereum 的音乐版权管理 Decentralized Application (ÐApp)。
 
-Uright去中心化应用允许音乐人（内容所有者）将他们的作品注册为"Manifestations"并登记至以太坊区块链。
+Uright 去中心化应用允许音乐人（内容所有者）将他们的作品注册为"Manifestations"并登记至以太坊区块链。
 
-"Manifestations"将音乐人的作品展现为内容片段，用以证明作者身份及所有权。这是通过"Manifestations"智能合约完成的，该智能合约记录显示作品内容的IPFS哈希、标题(计划附加元数据)以及注册时间，这些信息可以用来证明作者身份，并且内容可以从IPFS文件存储系统中检索到。
+"Manifestations"将音乐人的作品展现为内容片段，用以证明作者身份及所有权。这是通过"Manifestations"智能合约完成的，该智能合约记录显示作品内容的 IPFS 哈希、标题(计划附加元数据)以及注册时间，这些信息可以用来证明作者身份，并且内容可以从 IPFS 文件存储系统中检索到。
 
-然而，仅仅注册一个"Manifestations"是不够的，还应提供支撑材料，否则该"Manifestations"将于一天后失效。这些支持材料通常由音乐人（作品上传者）注册，但任何其他人都可以添加支撑材料，支撑材料可以是任何类型的文件，如截图、PDF文档等。"UploadEvidences"智能合约会将支撑材料上传至IPFS文件系统。
+然而，仅仅注册一个"Manifestations"是不够的，还应提供支撑材料，否则该"Manifestations"将于一天后失效。这些支持材料通常由音乐人（作品上传者）注册，但任何其他人都可以添加支撑材料，支撑材料可以是任何类型的文件，如截图、PDF 文档等。"UploadEvidences"智能合约会将支撑材料上传至 IPFS 文件系统。
 
-此外，"YouTubeEvidences"智能合约允许音乐人在YouTube等视频/音乐平台的上传简介中声明作品"Manifestations"，智能合约将自动检测作为支撑材料。
+此外，"YouTubeEvidences"智能合约允许音乐人在 YouTube 等视频/音乐平台的上传简介中声明作品"Manifestations"，智能合约将自动检测作为支撑材料。
 
-（开发中...）如果有其他人已经注册了音乐人的原创作品/支持材料，音乐人可以进行申诉，合约功能已实现，但在Web应用尚不可用。
+（开发中...）如果有其他人已经注册了音乐人的原创作品/支持材料，音乐人可以进行申诉，合约功能已实现，但在 Web 应用尚不可用。
 
-（开发中...）通过NFT技术对音乐人作品进行代币化。
+（开发中...）通过 NFT 技术对音乐人作品进行代币化。
 
 项目地址：[GitHub](https://github.com/pseudoyu/Uright)
 
