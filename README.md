@@ -1,6 +1,6 @@
 # Uright - 区块链音乐版权管理ÐApp
 
-![uright_chain](https://cdn.jsdelivr.net/gh/pseudoyu/image_hosting@master/hugo_images/uright_chain.png)
+![uright_chain](https://cdn.jsdelivr.net/gh/pseudoyu/image_hosting@master/images/uright_chain.png)
 
 ### 简介
 
